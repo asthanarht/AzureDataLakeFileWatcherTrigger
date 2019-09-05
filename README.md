@@ -18,16 +18,12 @@ using AdlsFileWatcherTriggerExtension;
 Add the following attributes that include the account FQDN, ApplicationId, Client Secret and Tenant Id.
 
 ```c#
-[DataLakeStore(
-  AccountFQDN = @"fqdn", 
-  ApplicationId = @"applicationid", 
-  ClientSecret = @"clientsecret", 
-  TenantID = @"tentantid")]out DataLakeStoreOutput dataLakeStoreOutput
+[AdlsWatcherTrigger(FolderName ="/")]AdlsFileChangeEvent myfileEvent
 ```
 View a [sample function](samples/DataLakeExtensionSamples/OutputFromBlob.cs) using output binding.
 
 #### Input Binding
-Add *FileName* property to retrieve a specific file from your Datalake Store.
+Add *FoldereName* property to retrieve a specific file watch from your Datalake Store.
 
 ```c#
 public static class Function1
